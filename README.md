@@ -1,5 +1,5 @@
 # AllMovies App
-This App connects to an external API(https://www.omdbapi.com/?s=Batman&page=1&apikey=86c4b2d9) to asynchronously get all the movies ever created about Batman, the Marvel superhero and persist them to a locally database 
+This app connects to an external API(https://www.omdbapi.com/?s=Batman&page=1&apikey=86c4b2d9) to asynchronously get all the movies ever created about Batman, the Marvel superhero and persist them to a locally database 
 and users can search for any movie by Title, Year, etc. 
 App also gets new movies about batman to ensure local database is up to date.
 
@@ -31,7 +31,7 @@ I was unable to specifically build a feature that let User to save favorite movi
 
 
 
-The API(https://www.omdbapi.com/?s=Batman&page=1&apikey=86c4b2d9) end point to get multiple movies only returns 10 movies per page so paginated to ensure it works well.
+The API(https://www.omdbapi.com/?s=Batman&page=1&apikey=86c4b2d9) end point to get multiple movies only returns 10 movies per page so I paginated the query to ensure it works well.
 The API(https://www.omdbapi.com/?s=Batman&page=1&apikey=86c4b2d9) end point returns data in the format for multiple data 
 {
     "Search":[{
@@ -43,9 +43,7 @@ The API(https://www.omdbapi.com/?s=Batman&page=1&apikey=86c4b2d9) end point retu
     },
     ...
     ],"totalResults":"490","Response":"True"
-    }
-    
-    AND NOT EXACTLY IN THIS FORMAT THAT YOU HAVE {"Title":"Batman",
+    } AND NOT EXACTLY IN THIS FORMAT {"Title":"Batman",
     "Year":"1989",
     "Rated":"PG-13",
     "Released":"23 Jun 1989",
