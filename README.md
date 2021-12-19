@@ -6,32 +6,37 @@ App also gets new movies about batman to ensure local database is up to date.
 "Choice of a 3rd party"
 
 SwiftyJSON
-Pros
+
+Pros: 
 I love how easy SwiftyJSON makes JSON parsing! It automatically ensures a safe value gets returned even if the data is missing or broken. 
 For example, json["search"]["title"].stringValue will either return the movie title as a string or an empty string, regardless of what the JSON contains. 
 So if "title" or "year" don't exist, or if they do exist but actually contains an integer for some reason, I'll get back an empty string – it makes JSON parsing extremely safe while being easy to read and write.
 
-Cons
+Cons: 
 Vendor lock-in
 
 SDWebImage
-Pros
+
+Pros: 
 SDWebImage loads the images in a background thread so am not blocking the UI/main thread when this downloading is going on. Furthermore, it will also disk-cache all the images I've downloaded 
 and will NEVER re-download an image from the same URL so it saves user's data.
 
-Cons
+Cons: 
 Vendor lock-in
 
-UITest
+UITest: 
+
 I Did a UITest in the AllMoviesUITests class to ensure app is rendering welll via the testAppWorking() test method.
 
-Favorite Movies
+Favorite Movies:
+
 Although all movies data are persisted locally in the database thereby making data available between app session (i.e closing and reopening the app). 
 I was unable to specifically build a feature that let User to save favorite movies or make a movie their favourite beacuse I had busy work week migrating our app to Android 12 and ensuring Android 12 behavioural changes are effected.
 
 
 
 The API(https://www.omdbapi.com/?s=Batman&page=1&apikey=86c4b2d9) end point to get multiple movies only returns 10 movies per page so I paginated the query to ensure it works well.
+
 The API(https://www.omdbapi.com/?s=Batman&page=1&apikey=86c4b2d9) end point returns data in the format for multiple data 
 {
     "Search":[{
@@ -43,7 +48,9 @@ The API(https://www.omdbapi.com/?s=Batman&page=1&apikey=86c4b2d9) end point retu
     },
     ...
     ],"totalResults":"490","Response":"True"
-    } AND NOT EXACTLY IN THIS FORMAT {"Title":"Batman",
+    } 
+    
+    AND NOT EXACTLY IN THIS FORMAT {"Title":"Batman",
     "Year":"1989",
     "Rated":"PG-13",
     "Released":"23 Jun 1989",
