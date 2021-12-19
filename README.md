@@ -37,7 +37,8 @@ I was unable to specifically build a feature that let User to save favorite movi
 
 The API(https://www.omdbapi.com/?s=Batman&page=1&apikey=86c4b2d9) end point to get multiple movies only returns 10 movies per page so I paginated the query to ensure it works well.
 
-The API(https://www.omdbapi.com/?s=Batman&page=1&apikey=86c4b2d9) end point returns data in the format for multiple data 
+The API(https://www.omdbapi.com/?s=Batman&page=1&apikey=86c4b2d9) end point returns data in this format for multiple data 
+
 {
     "Search":[{
     "Title":"Batman Begins",
