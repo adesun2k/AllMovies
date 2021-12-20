@@ -39,6 +39,7 @@ The API(https://www.omdbapi.com/?s=Batman&page=1&apikey=86c4b2d9) end point to g
 ![This is an image](https://github.com/adesun2k/AllMovies/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202021-12-18%20at%2009.57.20.png)
 ![This is an image](https://github.com/adesun2k/AllMovies/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202021-12-18%20at%2009.57.31.png)
 
+
 ## The API(https://www.omdbapi.com/?s=Batman&page=1&apikey=86c4b2d9) end point returns data in this format for multiple data 
 
 ```{
