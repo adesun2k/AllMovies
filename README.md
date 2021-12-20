@@ -77,11 +77,12 @@ The API(https://www.omdbapi.com/?s=Batman&page=1&apikey=86c4b2d9) end point to g
     ],
     "totalResults":"490",
     "Response":"True"
-}```
+}
 
     
    ## AND NOT EXACTLY IN THIS FORMAT 
-   ``` {"Title":"Batman",
+   {
+   "Title":"Batman",
     "Year":"1989",
     "Rated":"PG-13",
     "Released":"23 Jun 1989",
