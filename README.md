@@ -1,11 +1,10 @@
 # AllMovies App
-This app connects to an external API(https://www.omdbapi.com/?s=Batman&page=1&apikey=86c4b2d9) to asynchronously get all the movies ever created about Batman, the Marvel superhero and persist them to a locally database 
-and users can search for any movie by Title, Year, etc. 
-App also gets new movies about batman to ensure local database is up to date.
+This app connects to an external API(https://www.omdbapi.com/?s=Batman&page=1&apikey=86c4b2d9) to asynchronously get all the movies ever created about Batman, the Marvel superhero and persist them to a local database and users can search for any movie by Title, Year, etc. It also ensures local database is up to date.
 
-"Choice of a 3rd party"
 
-SwiftyJSON
+## Choice of a 3rd party
+
+## SwiftyJSON
 
 Pros: 
 I love how easy SwiftyJSON makes JSON parsing! It automatically ensures a safe value gets returned even if the data is missing or broken. 
@@ -15,7 +14,7 @@ So if "title" or "year" don't exist, or if they do exist but actually contains a
 Cons: 
 Vendor lock-in
 
-SDWebImage
+## SDWebImage
 
 Pros: 
 SDWebImage loads the images in a background thread so am not blocking the UI/main thread when this downloading is going on. Furthermore, it will also disk-cache all the images I've downloaded 
@@ -24,7 +23,7 @@ and will NEVER re-download an image from the same URL so it saves user's data.
 Cons: 
 Vendor lock-in
 
-UITest: 
+## UITest: 
 
 I Did a UITest in the AllMoviesUITests class to ensure app is rendering welll via the testAppWorking() test method.
 
@@ -37,21 +36,52 @@ I was unable to specifically build a feature that let User to save favorite movi
 
 The API(https://www.omdbapi.com/?s=Batman&page=1&apikey=86c4b2d9) end point to get multiple movies only returns 10 movies per page so I paginated the query to ensure it works well.
 
-The API(https://www.omdbapi.com/?s=Batman&page=1&apikey=86c4b2d9) end point returns data in this format for multiple data 
+![This is an image](https://github.com/adesun2k/AllMovies/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202021-12-18%20at%2009.57.20.png)
+![This is an image](https://github.com/adesun2k/AllMovies/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202021-12-18%20at%2009.57.31.png)
 
-{
-    "Search":[{
-    "Title":"Batman Begins",
-    "Year":"2005",
-    "imdbID":"tt0372784",
-    "Type":"movie",
-    "Poster":"https://m.media-amazon.com/images/M/MV5BOTY4YjI2N2MtYmFlMC00ZjcyLTg3YjEtMDQyM2ZjYzQ5YWFkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+## The API(https://www.omdbapi.com/?s=Batman&page=1&apikey=86c4b2d9) end point returns data in this format for multiple data 
+
+```{
+    "Search":
+    [
+    {
+        "Title":"Batman Begins","Year":"2005","imdbID":"tt0372784","Type":"movie","Poster":"https://m.media-amazon.com/images/M/MV5BOTY4YjI2N2MtYmFlMC00ZjcyLTg3YjEtMDQyM2ZjYzQ5YWFkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
     },
-    ...
-    ],"totalResults":"490","Response":"True"
-    } 
+    {
+        "Title":"Batman v Superman: Dawn of Justice","Year":"2016","imdbID":"tt2975590","Type":"movie","Poster":"https://m.media-amazon.com/images/M/MV5BYThjYzcyYzItNTVjNy00NDk0LTgwMWQtYjMwNmNlNWJhMzMyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+    },
+    {
+        "Title":"Batman","Year":"1989","imdbID":"tt0096895","Type":"movie","Poster":"https://m.media-amazon.com/images/M/MV5BMTYwNjAyODIyMF5BMl5BanBnXkFtZTYwNDMwMDk2._V1_SX300.jpg"
+    },
+    {
+        "Title":"Batman Returns","Year":"1992","imdbID":"tt0103776","Type":"movie","Poster":"https://m.media-amazon.com/images/M/MV5BOGZmYzVkMmItM2NiOS00MDI3LWI4ZWQtMTg0YWZkODRkMmViXkEyXkFqcGdeQXVyODY0NzcxNw@@._V1_SX300.jpg"
+    },
+    {
+        "Title":"Batman Forever","Year":"1995","imdbID":"tt0112462","Type":"movie","Poster":"https://m.media-amazon.com/images/M/MV5BNDdjYmFiYWEtYzBhZS00YTZkLWFlODgtY2I5MDE0NzZmMDljXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
+    },
+    {
+        "Title":"Batman & Robin","Year":"1997","imdbID":"tt0118688","Type":"movie","Poster":"https://m.media-amazon.com/images/M/MV5BMGQ5YTM1NmMtYmIxYy00N2VmLWJhZTYtN2EwYTY3MWFhOTczXkEyXkFqcGdeQXVyNTA2NTI0MTY@._V1_SX300.jpg"
+    },
+    {
+        "Title":"The Lego Batman Movie","Year":"2017","imdbID":"tt4116284","Type":"movie","Poster":"https://m.media-amazon.com/images/M/MV5BMTcyNTEyOTY0M15BMl5BanBnXkFtZTgwOTAyNzU3MDI@._V1_SX300.jpg"
+    },
+    {
+        "Title":"Batman: The Animated Series","Year":"1992–1995","imdbID":"tt0103359","Type":"series","Poster":"https://m.media-amazon.com/images/M/MV5BOTM3MTRkZjQtYjBkMy00YWE1LTkxOTQtNDQyNGY0YjYzNzAzXkEyXkFqcGdeQXVyOTgwMzk1MTA@._V1_SX300.jpg"
+    },
+    {
+        "Title":"Batman: Under the Red Hood","Year":"2010","imdbID":"tt1569923","Type":"movie","Poster":"https://m.media-amazon.com/images/M/MV5BNmY4ZDZjY2UtOWFiYy00MjhjLThmMjctOTQ2NjYxZGRjYmNlL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg"
+    },
+    {
+        "Title":"Batman: The Dark Knight Returns, Part 1","Year":"2012","imdbID":"tt2313197","Type":"movie","Poster":"https://m.media-amazon.com/images/M/MV5BMzIxMDkxNDM2M15BMl5BanBnXkFtZTcwMDA5ODY1OQ@@._V1_SX300.jpg"
+    }
+    ],
+    "totalResults":"490",
+    "Response":"True"
+}```
+
     
-    AND NOT EXACTLY IN THIS FORMAT {"Title":"Batman",
+   ## AND NOT EXACTLY IN THIS FORMAT 
+   ``` {"Title":"Batman",
     "Year":"1989",
     "Rated":"PG-13",
     "Released":"23 Jun 1989",
@@ -75,4 +105,6 @@ The API(https://www.omdbapi.com/?s=Batman&page=1&apikey=86c4b2d9) end point retu
      "BoxOffice":"$251,348,343",
      "Production":"N/A",
      "Website":"N/A",
-     "Response":"True"}
+     "Response":"True"
+     }```
+
